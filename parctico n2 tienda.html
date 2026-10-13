@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>VENTAS LEO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #00BFFF, #ffffff); /* CELESTE FUERTE Y BRILLANTE */
+            color: black; /* LETRA NEGRA */
+            text-align: center;
+        }
+
+        /* --- ANIMACIÓN: BAJAR DE ARRIBA HACIA ABAJO --- */
+        @keyframes bajar {
+            0% { 
+                transform: translateY(-150px);
+                opacity: 0;
+            }
+            100% { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* --- LOGO --- */
+        .logo-container {
+            background-color: #00BFFF; /* CELESTE FUERTE */
+            padding: 15px;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            border: 3px solid #FFD700; /* BORDE DORADO BRILLANTE */
+            border-radius: 50%;
+            background-color: transparent;
+            display: inline-block;
+            animation: bajar 4s ease forwards; /* 4 SEGUNDOS */
+            background-image: url(aguila.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+        /* --- MENÚ --- */
+        .menu {
+            background-color: #00BFFF; /* CELESTE FUERTE */
+            padding: 10px;
+            border-bottom: 3px solid #FFD700; /* LINEA DORADA BRILLANTE */
+        }
+        .menu a {
+            display: inline-block;
+            background-color: white;
+            color: black;
+            padding: 10px 25px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2em;
+            border: 2px solid #FFD700; /* BORDE DORADO */
+        }
+        .menu a:hover,
+        .menu a.activo {
+            background-color: #FFD700; /* FONDO DORADO AL PASAR MOUSE */
+            color: black;
+        }
+
+        /* --- TÍTULO PRINCIPAL (DORADO MÁS VIBRANTE) --- */
+        h1 {
+            color: #FFD700; /* DORADO BRILLANTE (ORO) */
+            font-size: 4.5em;
+            margin: 30px 0;
+            text-shadow: 3px 3px 5px black; /* SOMBRA NEGRA PARA DESTACAR MÁS */
+            font-weight: bold;
+        }
+
+        /* --- TEXTO MOTIVADOR --- */
+        .texto-motivacional {
+            font-size: 1.4em;
+            max-width: 80%;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-style: italic;
+            color: #222;
+        }
+        .destacado {
+            color: #00BFFF; /* TEXTO DESTACADO EN CELESTE FUERTE */
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-top: 20px;
+            display: block;
+            font-style: normal;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        /* --- SECCIONES (TÍTULOS EN DORADO VIBRANTE) --- */
+        .seccion {
+            margin: 80px 0;
+        }
+        .titulo-seccion {
+            color: #FFD700; /* DORADO BRILLANTE */
+            font-size: 3.2em;
+            border-bottom: 4px solid #00BFFF; /* LINEA CELESTE FUERTE ABAJO */
+            display: inline-block;
+            padding-bottom: 10px;
+            text-shadow: 3px 3px 5px black;
+        }
+
+        /* --- VENTANA CONTÁCTANOS --- */
+        #contacto {
+            display: none;
+            background: linear-gradient(to right, #ffffff, #00BFFF); /* CELESTE FUERTE Y BLANCO */
+            border: 3px solid #FFD700; /* BORDE DORADO */
+            border-radius: 15px;
+            width: 70%;
+            margin: 30px auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        /* ANIMACIÓN DENTRO DE LA VENTANA */
+        .qr, .telefono, .redes button {
+            animation: bajar 4s ease forwards;
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #FFD700; /* BOTÓN CERRAR EN DORADO */
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            text-shadow: 1px 1px 2px black;
+        }
+        .contenido-contacto {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .qr img{
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border: 3px solid #FFD700; /* BORDE DORADO */
+            background-color: white;
+        }
+        .telefono {
+            font-size: 1.8em;
+            margin-top: 15px;
+            color: #00BFFF; /* NÚMERO EN CELESTE FUERTE */
+            text-shadow: 1px 1px 2px black;
+        }
+        .telefono span {
+            color: #FFD700; /* NÚMERO EN DORADO */
+            font-weight: bold;
+        }
+        .redes button {
+            display: block;
+            background-color: transparent;
+            border: 2px solid #FFD700; /* BORDE DORADO */
+            color: #00BFFF; /* TEXTO DE REDES EN CELESTE FUERTE */
+            padding: 10px 30px;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px black;
+        }
+        .redes button:hover {
+            background-color: #FFD700; /* FONDO DORADO AL PASAR MOUSE */
+            color: black;
+            text-shadow: none;
+        }
+/* ============================================== */
+/* ========== ESTILOS DE PRODUCTOS ============== */
+/* ============================================== */
+.contenedor-productos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.producto {
+    background-color: white;
+    border: 3px solid #00BFFF;
+    border-radius: 15px;
+    width: 280px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color:white ;
+    border-radius: 10px;
+    border: 2px solid #FFD700;
+}
+
+.producto h3 {
+    color: #00BFFF;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.precio {
+    color: #FFD700;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    margin: 10px 0;
+}
+
+.btn-comprar {
+    background-color: #FFD700;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-comprar:hover {
+    background-color: #00BFFF;
+    color: white;
+}
+#formulario-pedido {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 4px solid #FFD700;
+    border-radius: 20px;
+    padding: 40px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 0 30px black;
+    z-index: 1000;
+}
+
+#formulario-pedido h2 {
+    color: #00BFFF;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#formulario-pedido label {
+    display: block;
+    text-align: left;
+    margin: 15px 0 5px;
+    font-weight: bold;
+    color: black;
+}
+
+#formulario-pedido input,
+#formulario-pedido select,
+#formulario-pedido textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00BFFF;
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+.opciones-pago {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.btn-enviar {
+    background-color: #00BFFF;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background-color: #FFD700;
+    color: black;
+}
+
+.cerrar-form {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2em;
+    color: #FFD700;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#ventana-ubicacion {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 4px solid #FFD700;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 30px black;
+    z-index: 1000;
+}
+
+#ventana-ubicacion h2 {
+    color: #00BFFF;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.btn-lugar {
+    display: block;
+    background-color: #00BFFF;
+    color: white;
+    border: 2px solid black;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 15px;
+    margin: 15px auto;
+    cursor: pointer;
+    text-decoration: none;
+    width: 200px;
+}
+
+.btn-lugar:hover {
+    background-color: #FFD700;
+    color: black;
+}
+
+.cerrar-ubi {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    color: #FFD700;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.pie-pagina {
+    background-color: #00BFFF;
+    color: white;
+    border-top: 4px solid #FFD700;
+    padding: 20px;
+    margin-top: 80px;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px black;
+}
+
+.pie-pagina h3 {
+    color: #FFD700;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.btn-ubi-pie {
+    background-color: white;
+    color: black;
+    border: 3px solid #FFD700;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-ubi-pie:hover {
+    background-color: black;
+    color: white;
+}
+    </style>
+
+</head>
+<body>
+
+    <!-- LOGO -->
+ <div class="logo">
+
+        </div>
+
+
+    <!-- MENÚ -->
+    <div class="menu">
+        <a href="#inicio">INICIO</a>
+        <a href="#poleras">POLERAS</a>
+       
+        <a href="#contacto" onclick="document.getElementById('contacto').style.display='block'">CONTÁCTANOS</a>
+    </div>
+
+    <!-- INICIO -->
+    <div id="inicio">
+        <h1> BIENVENIDOS A VENTAS LEO</h1>
+        
+        <p class="texto-motivacional">
+            Descubre la mejor calidad y estilo al mejor precio. 
+            Nos dedicamos a ofrecerte prendas únicas que resalten tu personalidad, 
+            fabricadas con materiales de primera para que te sientas cómodo y seguro.
+        </p>
+        <p class="texto-motivacional destacado">
+            ¡TU ESTILO, TU MARCA, TU MEJOR VERSIÓN! 
+            TE ESPERAMOS PARA QUE VIVAS LA MEJOR EXPERIENCIA DE COMPRA.
+        </p>
+    </div>
+  <div id="BIENVENIDOS" class="seccion">
+        <div class="titulo-seccion"></div>
+    </div>
+     <div id="BIENVENIDOS" class="seccion">
+        <div class="titulo-seccion"></div>
+    </div>
+
+    <!-- SECCIÓN POLERAS -->
+    <div id="poleras" class="seccion">
+        <div class="titulo-seccion">SECCIÓN POLERAS</div>
+    </div>
+    <div class="contenedor-productos">
+
+        <!-- POLERA 1 -->
+        <div class="producto">
+            <img src="polera1.jpeg" alt="Polera">
+            <h3>MODELO N°1 DEPORTIVA</h3>
+            <div class="precio">$ 120 Bs.</div>
+            <button class="btn-comprar" onclick="abrirFormulario()">COMPRAR</button>
+        </div>
+        <!-- POLERA 2 -->
+        <div class="producto">
+            <img src="polera2.jpeg" alt="Polera">
+            <h3>MODELO N°2    CLÁSICA</h3>
+            <div class="precio">$ 100 Bs.</div>
+            <button class="btn-comprar" onclick="abrirFormulario()">COMPRAR</button>
+        </div>
+        <div class="producto">
+            <img src="polera7.jpeg" alt="Polera">
+            <h3>MODELO N°3 PERSONALIZADO</h3>
+            <div class="precio">$ 110 Bs.</div>
+            <button class="btn-comprar" onclick="abrirFormulario()">COMPRAR</button>
+        </div>
+        <div class="producto">
+            <img src="polera4.jpeg" alt="Polera">
+            <h3>MODELO N°4 AMERICANA</h3>
+            <div class="precio">$ 90 Bs.</div>
+            <button class="btn-comprar" onclick="abrirFormulario()">COMPRAR</button>
+        </div>
+        <div class="producto">
+            <img src="polera5.jpeg" alt="Polera">
+            <h3>MODELO N°5 BLANCO Y NEGRO</h3>
+            <div class="precio">$ 100 Bs.</div>
+            <button class="btn-comprar" onclick="abrirFormulario()">COMPRAR</button>
+        </div>
+        <div class="producto">
+            <img src="polera6.jpeg" alt="Polera">
+            <h3>MODELO N°6  DISEÑADO</h3>
+            <div class="precio">$ 120 Bs.</div>
+            <button class="btn-comprar" onclick="abrirFormulario()">COMPRAR</button>
+        </div>
+    </div>
+</div>
+    
+    <!-- VENTANA CONTÁCTANOS -->
+    <div id="contacto">
+        <a href="#" class="cerrar" onclick="document.getElementById('contacto').style.display='none'">X</a>
+        <h1>CONTÁCTANOS</h1>
+        <div class="contenido-contacto">
+            <div>
+                <div class="qr">
+                <img src="codigoqr.jpeg" alt="QR">
+                </div>
+                <div class="telefono">
+                    WHATSAPP <br>
+                    <span>+591 68566454</span>
+                </div>
+            </div>
+            <div class="redes">
+                <button>FACEBOOK</button>
+                <button>INSTAGRAM</button>
+                <button>TIK TOK</button>
+            </div>
+        </div>
+    </div>
+<!-- PIE DE PÁGINA CON BOTÓN DE UBICACIÓN -->
+<div class="pie-pagina">
+    <h3> NUESTRA UBICACIÓN</h3>
+    <button class="btn-ubi-pie" onclick="abrirUbicacion()">VER UBICACIÓN</button>
+</div>
+
+<!-- VENTANA OCULTA CON LAS OPCIONES -->
+<div id="ventana-ubicacion">
+    <span class="cerrar-ubi" onclick="cerrarUbicacion()">X</span>
+    <h2>NOS ENCONTRAMOS EN 2 LUGARES</h2>
+
+    <a href="https://www.google.com/maps/search/mercado+campesino+sucre+bolivia/" target="_blank" class="btn-lugar">
+        📍 MERCADO CAMPESINO
+    </a>
+
+    <a href="https://www.google.com/maps/search/mercado+central+sucre+bolivia/" target="_blank" class="btn-lugar">
+        📍 MERCADO CENTRAL
+    </a>
+</div>
+<script>
+    // FUNCIONES DEL FORMULARIO
+    function abrirFormulario() {
+        document.getElementById('formulario-pedido').style.display = 'block';
+    }
+    function cerrarFormulario() {
+        document.getElementById('formulario-pedido').style.display = 'none';
+    }
+    function mostrarOpciones() {
+        let tipo = document.getElementById('metodoPago').value;
+        document.getElementById('datosTarjeta').style.display = 'none';
+        
+        if(tipo == 'tarjeta') {
+            document.getElementById('datosTarjeta').style.display = 'block';
+        }
+        else {
+            document.getElementById('datosTarjeta').style.display = 'none';
+        }
+    }
+
+    // FUNCIONES DE UBICACIÓN
+    function abrirUbicacion() {
+        document.getElementById('ventana-ubicacion').style.display = 'block';
+    }
+    function cerrarUbicacion() {
+        document.getElementById('ventana-ubicacion').style.display = 'none';
+    }
+</script>
+</body>
+<!-- FORMULARIO DE PEDIDO -->
+<div id="formulario-pedido">
+    <span class="cerrar-form" onclick="cerrarFormulario()">X</span>
+    <h2>HAS TU PEDIDO</h2>
+
+    <label>Nombre Completo:</label>
+    <input type="text" placeholder="Escribe tu nombre">
+
+    <label>Dirección:</label>
+    <input type="text" placeholder="Barrio, Calle, Número">
+
+    <label>Gmail / Correo:</label>
+    <input type="email" placeholder="tu@email.com">
+
+    <label>Método de Pago:</label>
+    <select id="metodoPago" onchange="mostrarOpciones()">
+        <option value="">-- SELECCIONAR --</option>
+        <option value="efectivo">EFECTIVO</option>
+        <option value="tarjeta">TARJETA</option>
+    </select>
+
+    <!-- DATOS TARJETA -->
+    <div id="datosTarjeta" style="display:none;">
+        <label>Número de Tarjeta:</label>
+        <input type="text">
+        <label>Fecha / CVV:</label>
+        <input type="text">
+    </div>
+
+
+    <button class="btn-enviar">ENVIAR PEDIDO</button>
+</div>
+<script>
+function abrirFormulario() {
+    document.getElementById('formulario-pedido').style.display = 'block';
+}
+function cerrarFormulario() {
+    document.getElementById('formulario-pedido').style.display = 'none';
+}
+function mostrarOpciones() {
+    let tipo = document.getElementById('metodoPago').value;
+    document.getElementById('datosTarjeta').style.display = 'none';
+    
+    if(tipo == 'tarjeta') {
+        document.getElementById('datosTarjeta').style.display = 'block';
+    }
+}
+</script>
+</html>

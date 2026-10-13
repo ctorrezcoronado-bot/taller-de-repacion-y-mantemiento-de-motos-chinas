@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TALLER DE MOTOS CHINAS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f4f4;
+            color: #222;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background: #111;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,.3);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            color: #ffcc00;
+        }
+
+        .cart-button {
+            background: #ffcc00;
+            color: #111;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+ 
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    ), url("FONDO.jpg");
+
+        }
+ .hero-content {
+            max-width: 800px;
+        }
+
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #00ff00;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffcc00;
+            color: #111;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #e6b800;
+        }
+
+        /* SECCIONES */
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            color: #111;
+        }
+
+        .section-title p {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* SERVICIOS */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,.1);
+            transition: .3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .service-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .service-content label {
+            display: block;
+            padding: 8px;
+            background: #f4f4f4;
+            margin-bottom: 6px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* FORMULARIO DE SERVICIO */
+
+        .work-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.1);
+        }
+
+        .work-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .option {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            border-color: #ffcc00;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* REPUESTOS */
+
+        .parts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .part-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,.1);
+        }
+
+        .part-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .part-info {
+            padding: 20px;
+        }
+
+        .part-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #e6a900;
+            margin: 10px 0;
+        }
+
+        .add-cart {
+            width: 100%;
+            background: #111;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add-cart:hover {
+            background: #ffcc00;
+            color: #111;
+        }
+
+        /* UBICACION */
+
+        .location {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .location-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.1);
+        }
+
+        .location-box p {
+            margin: 15px 0;
+            font-size: 17px;
+        }
+
+        .map {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            border-radius: 15px;
+        }
+
+        /* CONTACTO */
+
+        .contact {
+            background: #111;
+            color: white;
+            max-width: none;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .phone {
+            font-size: 25px;
+            color: #00ff00;
+            margin: 15px;
+        }
+
+        /* CARRITO */
+
+        .cart {
+            position: fixed;
+            right: -420px;
+            top: 0;
+            width: 400px;
+            max-width: 95%;
+            height: 100%;
+            background: white;
+            z-index: 2000;
+            box-shadow: -5px 0 20px rgba(0,0,0,.3);
+            transition: .3s;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .cart.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .close-cart {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .cart-item strong {
+            display: block;
+        }
+
+        .cart-controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            align-items: center;
+        }
+
+        .cart-controls button {
+            border: none;
+            background: #111;
+            color: white;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .remove {
+            background: #d90000 !important;
+        }
+
+        .cart-total {
+            margin-top: 25px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050505;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 768px) {
+
+            .menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .location {
+                grid-template-columns: 1fr;
+            }
+
+            .cart {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+             <img src="logo.jpeg"
+             style="width:120px; height:120px;
+             object-fit:contain;">
+        </div>
+
+        <ul class="menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#repuestos">Repuestos</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒 Carrito (<span id="cartCount">0</span>)
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- INICIO -->
+
+<div class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <h1>
+          <span> TALLER DE MOTOCICLETAS CHINAS</span>
+        </h1>
+
+        <p>
+            Mantenimiento, reparación y venta de repuestos
+            para motos chinas.
+        </p>
+
+        <a href="#servicio" class="btn">
+            🔧 Solicitar servicio
+        </a>
+
+        <a href="#repuestos" class="btn">
+            🛒 Ver repuestos
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- SERVICIOS -->
+
+<section id="servicios">
+
+    <div class="section-title">
+
+        <h2>🔧 Nuestros Servicios</h2>
+
+        <p>
+            Selecciona el trabajo que necesita tu motocicleta.
+        </p>
+
+    </div>
+
+    <div class="services">
+
+        <div class="service-card">
+
+            <img src="mantenimiento general.jpeg">
+
+            <div class="service-content">
+
+                <h3>🔧 Mantenimiento general</h3>
+
+                <p>
+                    Revisión completa de la motocicleta.
+                </p>
+
+                <label>
+                    <input type="checkbox" class="serviceCheck" value="Mantenimiento general">
+                    Solicitar
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <img src="cambio de aceite.jpeg">
+
+            <div class="service-content">
+
+                <h3>🛢️ Cambio de aceite</h3>
+
+                <p>
+                    Cambio de aceite y revisión de niveles.
+                </p>
+
+                <label>
+                    <input type="checkbox" class="serviceCheck" value="Cambio de aceite">
+                    Solicitar
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <img src="FRENOS.jpeg">
+
+            <div class="service-content">
+
+                <h3>🛞 Frenos</h3>
+
+                <p>
+                    Revisión y reparación del sistema de frenos.
+                </p>
+
+                <label>
+                    <input type="checkbox" class="serviceCheck" value="Revisión de frenos">
+                    Solicitar
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <img src="ELECTRICIDAD.jpeg">
+
+            <div class="service-content">
+
+                <h3>⚡ Electricidad</h3>
+
+                <p>
+                    Diagnóstico de batería, luces y sistema eléctrico.
+                </p>
+
+                <label>
+                    <input type="checkbox" class="serviceCheck" value="Sistema eléctrico">
+                    Solicitar
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOLICITAR SERVICIO -->
+
+<section id="servicio">
+
+    <div class="section-title">
+
+        <h2>📋 Solicitar un trabajo</h2>
+
+        <p>
+            Marca las opciones que deseas realizar en tu moto.
+        </p>
+
+    </div>
+
+
+    <div class="work-box">
+
+        <h3>¿Qué necesita tu motocicleta?</h3>
+
+        <div class="work-options">
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Cambio de aceite">
+                🛢️ Cambio de aceite
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Afinación">
+                🔧 Afinación
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Revisión de frenos">
+                🛞 Frenos
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Cambio de pastillas">
+                🔩 Pastillas de freno
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Revisión de motor">
+                ⚙️ Motor
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Sistema eléctrico">
+                ⚡ Electricidad
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Cambio de cadena">
+                ⛓️ Cadena
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Revisión de suspensión">
+                🏍️ Suspensión
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Cambio de llantas">
+                🛞 Llantas
+            </label>
+
+            <label class="option">
+                <input type="checkbox" class="serviceCheck" value="Diagnóstico general">
+                🔍 Diagnóstico general
+            </label>
+
+        </div>
+
+
+        <h3>Datos del cliente</h3>
+
+        <input
+            type="text"
+            id="cliente"
+            placeholder="Nombre completo"
+        >
+
+        <input
+            type="tel"
+            id="telefono"
+            placeholder="Número de teléfono"
+        >
+
+        <input
+            type="text"
+            id="modelo"
+            placeholder="Marca y modelo de la moto"
+        >
+
+        <textarea
+            id="detalle"
+            placeholder="Describe el problema de tu motocicleta..."
+        ></textarea>
+
+
+        <button class="btn" onclick="enviarServicio()">
+            📲 Solicitar servicio por WhatsApp
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- REPUESTOS -->
+
+<section id="repuestos">
+
+    <div class="section-title">
+
+        <h2>🧩 Repuestos para motos</h2>
+
+        <p>
+            Selecciona los repuestos que deseas comprar.
+        </p>
+
+    </div>
+
+
+    <div class="parts">
+
+
+        <div class="part-card">
+
+            <img src="pastillas.jpeg">
+
+            <div class="part-info">
+
+                <h3>Pastillas de freno</h3>
+
+                <p>Repuesto para motos chinas.</p>
+
+                <div class="price">35bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Pastillas de freno',25)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="part-card">
+
+            <img src="cadena.jpeg">
+
+            <div class="part-info">
+
+                <h3>Cadena para moto</h3>
+
+                <p>Cadena reforzada.</p>
+
+                <div class="price">85bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Cadena para moto',35)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+
+
+
+
+
+
+
+ </div>
+
+
+        <div class="part-card">
+
+            <img src="valvulas.jpeg">
+
+            <div class="part-info">
+
+                <h3>valvulsas para las motos 150cc 200cc 250cc</h3>
+
+                <p>valvulas reforzadas.</p>
+
+                <div class="price">55bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Cadena para moto',35)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+
+ </div>
+
+
+        <div class="part-card">
+
+            <img src="discos de embrague.jpeg">
+
+            <div class="part-info">
+
+                <h3>discos de embrague para motos 150cc 200cc 250cc </h3>
+
+                <p>repuestos de motos chinas.</p>
+
+                <div class="price">65bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Cadena para moto',35)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+
+ </div>
+
+
+        <div class="part-card">
+
+            <img src="pistones.jpeg">
+
+            <div class="part-info">
+
+                <h3>pistones para motos 150cc 200cc 250cc </h3>
+
+                <p>pistones reforzados.</p>
+
+                <div class="price">100bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Cadena para moto',35)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+
+ </div>
+
+
+        <div class="part-card">
+
+            <img src="rodamientos.jpeg">
+
+            <div class="part-info">
+
+                <h3>rodamientos para motos 150cc 200cc 250cc </h3>
+
+                <p>repuestros chinas.</p>
+
+                <div class="price">35bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Cadena para moto',35)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+
+ </div>
+
+
+        <div class="part-card">
+
+            <img src="retenes.jpeg">
+
+            <div class="part-info">
+
+                <h3>retenes para motos 150cc 200cc 250cc </h3>
+
+                <p>repuestos chinos.</p>
+
+                <div class="price">25bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Cadena para moto',35)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+ </div>
+
+
+        <div class="part-card">
+
+            <img src="biela.jpeg">
+
+            <div class="part-info">
+
+                <h3>Bielas para motos 150cc 200cc 250cc </h3>
+
+                <p>biela reforzada.</p>
+
+                <div class="price">115bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Cadena para moto',35)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+ </div>
+
+
+        <div class="part-card">
+
+            <img src="grupo de cajas.jpeg">
+
+            <div class="part-info">
+
+                <h3>grupos de caja para motos 150cc 200cc 250cc </h3>
+
+                <p>repuestos chinos .</p>
+
+                <div class="price">255bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Cadena para moto',35)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="part-card">
+
+            <img src="bujia.jpeg">
+
+            <div class="part-info">
+
+                <h3>Bujía</h3>
+
+                <p>Bujía para motocicletas 150cc 200cc 250cc</p>
+
+                <div class="price">60bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Bujía',8)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="part-card">
+
+            <img src="filtro de aire.jpeg">
+
+            <div class="part-info">
+
+                <h3>Filtro de aire para motos 150cc 200cc 250cc </h3>
+
+                <p>Filtro para motor.</p>
+
+                <div class="price">180bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Filtro de aire',15)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="part-card">
+
+            <img src="arbol de levas.jpeg">
+
+            <div class="part-info">
+
+                <h3>arbol de levas pasra motos 150cc 200cc 250cc </h3>
+
+                <p>levas reforzadas.</p>
+
+                <div class="price">110bs</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Par de espejos',20)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="part-card">
+
+            <img src="aceite.jpeg">
+
+            <div class="part-info">
+
+                <h3>Aceite para motor</h3>
+
+                <p>Aceite para motocicleta.</p>
+
+                <div class="price">$12</div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Aceite para motor',12)"
+                >
+                    🛒 Agregar al carrito
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- UBICACION -->
+
+<section id="ubicacion">
+
+    <div class="section-title">
+
+        <h2>📍 Ubicación del taller</h2>
+
+        <p>
+            Visítanos para realizar el mantenimiento de tu motocicleta.
+        </p>
+
+    </div>
+
+
+    <div class="location">
+
+        <div class="location-box">
+
+            <h2>🏍️ Taller Moto China</h2>
+
+            <p>
+                📍 <strong>Dirección:</strong><br>
+                C/virgen de rosario Z/el abra B/copacabana
+            </p>
+
+            <p>
+                📞 <strong>Teléfono:</strong><br>
+                +591 73475008
+            </p>
+
+            <p>
+                📱 <strong>WhatsApp:</strong><br>
+                +591 71155479
+            </p>
+
+            <p>
+                🕐 <strong>Horario:</strong><br>
+                Lunes a sábado<br>
+                08:00 - 18:00
+            </p>
+
+            <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                class="btn"
+            >
+                📍 Ver ubicación
+            </a>
+
+        </div>
+
+
+        <iframe
+            class="map"
+            src="https://www.google.com/maps?q=Sucre%20Bolivia&output=embed"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section class="contact" id="contacto">
+
+    <div class="contact-container">
+
+        <h2>📞 Contáctanos</h2>
+
+        <p>
+            ¿Necesitas reparar tu moto o comprar un repuesto?
+        </p>
+
+        <div class="phone">
+            📱 +591 73475008
+        </div>
+
+        <div class="phone">
+            ☎️ +591 71155479
+        </div>
+
+        <a
+            href="https://wa.me/59170000000"
+            target="_blank"
+            class="btn"
+        >
+            💬 Escribir por WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Taller Moto China - Mantenimiento y Repuestos
+    </p>
+
+</footer>
+
+
+<!-- CARRITO -->
+
+<div class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>🛒 Mi carrito</h2>
+
+        <button class="close-cart" onclick="closeCart()">
+            ✕
+        </button>
+
+    </div>
+
+    <div id="cartItems">
+
+        <p>
+            Tu carrito está vacío.
+        </p>
+
+    </div>
+
+    <div class="cart-total">
+
+        Total:
+        $<span id="cartTotal">0</span>
+
+    </div>
+
+    <br>
+
+    <input
+        type="text"
+        id="nombreCompra"
+        placeholder="Nombre completo"
+    >
+
+    <input
+        type="tel"
+        id="telefonoCompra"
+        placeholder="Número de WhatsApp"
+    >
+
+    <button
+        class="btn"
+        style="width:100%"
+        onclick="comprarPorWhatsApp()"
+    >
+        📲 Comprar por WhatsApp
+    </button>
+
+</div>
+
+
+<script>
+
+    let cart = [];
+
+
+    /* ABRIR CARRITO */
+
+    function openCart() {
+
+        document.getElementById("cart")
+            .classList.add("active");
+
+    }
+
+
+    /* CERRAR CARRITO */
+
+    function closeCart() {
+
+        document.getElementById("cart")
+            .classList.remove("active");
+
+    }
+
+
+    /* AGREGAR PRODUCTO */
+
+    function addToCart(name, price) {
+
+        const existing = cart.find(
+            item => item.name === name
+        );
+
+        if(existing) {
+
+            existing.quantity++;
+
+        } else {
+
+            cart.push({
+                name: name,
+                price: price,
+                quantity: 1
+            });
+
+        }
+
+        updateCart();
+
+        openCart();
+
+    }
+
+
+    /* ACTUALIZAR CARRITO */
+
+    function updateCart() {
+
+        const container =
+            document.getElementById("cartItems");
+
+        const count =
+            document.getElementById("cartCount");
+
+        const totalElement =
+            document.getElementById("cartTotal");
+
+
+        container.innerHTML = "";
+
+        let total = 0;
+        let quantityTotal = 0;
+
+
+        if(cart.length === 0) {
+
+            container.innerHTML =
+                "<p>Tu carrito está vacío.</p>";
+
+        }
+
+
+        cart.forEach((item, index) => {
+
+            total += item.price * item.quantity;
+
+            quantityTotal += item.quantity;
+
+
+            const div =
+                document.createElement("div");
+
+            div.className = "cart-item";
+
+
+            div.innerHTML = `
+
+                <strong>${item.name}</strong>
+
+                <span>
+                    $${item.price} x ${item.quantity}
+                </span>
+
+                <div class="cart-controls">
+
+                    <button onclick="changeQuantity(${index}, -1)">
+                        -
+                    </button>
+
+                    <span>${item.quantity}</span>
+
+                    <button onclick="changeQuantity(${index}, 1)">
+                        +
+                    </button>
+
+                    <button
+                        class="remove"
+                        onclick="removeItem(${index})"
+                    >
+                        🗑
+                    </button>
+
+                </div>
+
+            `;
+
+            container.appendChild(div);
+
+        });
+
+
+        count.textContent = quantityTotal;
+
+        totalElement.textContent =
+            total.toFixed(2);
+
+    }
+
+
+    /* CAMBIAR CANTIDAD */
+
+    function changeQuantity(index, amount) {
+
+        cart[index].quantity += amount;
+
+
+        if(cart[index].quantity <= 0) {
+
+            cart.splice(index, 1);
+
+        }
+
+
+        updateCart();
+
+    }
+
+
+    /* ELIMINAR PRODUCTO */
+
+    function removeItem(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+
+    }
+
+
+    /* COMPRAR POR WHATSAPP */
+
+    function comprarPorWhatsApp() {
+
+        if(cart.length === 0) {
+
+            alert("Tu carrito está vacío.");
+
+            return;
+
+        }
+
+
+        const nombre =
+            document.getElementById("nombreCompra").value;
+
+        const telefono =
+            document.getElementById("telefonoCompra").value;
+
+
+        let mensaje =
+            "Hola, quiero realizar una compra de repuestos.%0A%0A";
+
+
+        mensaje +=
+            "Cliente: " + nombre + "%0A";
+
+        mensaje +=
+            "Teléfono: " + telefono + "%0A%0A";
+
+
+        mensaje +=
+            "REPUESTOS:%0A";
+
+
+        let total = 0;
+
+
+        cart.forEach(item => {
+
+            const subtotal =
+                item.price * item.quantity;
+
+            total += subtotal;
+
+
+            mensaje +=
+                "- " +
+                item.name +
+                " x" +
+                item.quantity +
+                " = $" +
+                subtotal +
+                "%0A";
+
+        });
+
+
+        mensaje +=
+            "%0ATotal: $" +
+            total.toFixed(2);
+
+
+        const numero =
+            "59170000000";
+
+
+        window.open(
+            "https://wa.me/" +
+            numero +
+            "?text=" +
+            mensaje,
+            "_blank"
+        );
+
+    }
+
+
+    /* SOLICITAR SERVICIO */
+
+    function enviarServicio() {
+
+        const cliente =
+            document.getElementById("cliente").value;
+
+        const telefono =
+            document.getElementById("telefono").value;
+
+        const modelo =
+            document.getElementById("modelo").value;
+
+        const detalle =
+            document.getElementById("detalle").value;
+
+
+        const seleccionados =
+            document.querySelectorAll(
+                ".serviceCheck:checked"
+            );
+
+
+        let servicios = [];
+
+
+        seleccionados.forEach(item => {
+
+            if(!servicios.includes(item.value)) {
+
+                servicios.push(item.value);
+
+            }
+
+        });
+
+
+        if(servicios.length === 0) {
+
+            alert(
+                "Selecciona al menos un servicio."
+            );
+
+            return;
+
+        }
+
+
+        let mensaje =
+            "Hola, quiero solicitar un servicio para mi moto.%0A%0A";
+
+
+        mensaje +=
+            "Cliente: " + cliente + "%0A";
+
+        mensaje +=
+            "Teléfono: " + telefono + "%0A";
+
+        mensaje +=
+            "Moto: " + modelo + "%0A%0A";
+
+
+        mensaje +=
+            "TRABAJOS SOLICITADOS:%0A";
+
+
+        servicios.forEach(servicio => {
+
+            mensaje +=
+                "- " +
+                servicio +
+                "%0A";
+
+        });
+
+
+        mensaje +=
+            "%0ADetalles:%0A" +
+            detalle;
+
+
+        const numero =
+            "59170000000";
+
+
+        window.open(
+            "https://wa.me/" +
+            numero +
+            "?text=" +
+            mensaje,
+            "_blank"
+        );
+
+    }
+
+
+    updateCart();
+
+</script>
+
+</body>
+</html>
